@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+html,
+body,
+:root {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f6f6f6;
+}
