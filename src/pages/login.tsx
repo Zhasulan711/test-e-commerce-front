@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+"use client";
+
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { useAuthStore } from "@/stores/auth-store";
 import { Button } from "@/components/ui/button";
@@ -16,7 +18,7 @@ export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { login, isLoading } = useAuthStore();
+  const { login } = useAuthStore();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -46,7 +48,6 @@ export default function LoginPage() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required
-                  disabled={isLoading}
                 />
               </div>
               <div className="grid gap-2">
@@ -58,16 +59,14 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  disabled={isLoading}
                 />
               </div>
 
               <Button
                 type="submit"
                 className="w-full bg-black hover:bg-gray-800"
-                disabled={isLoading}
               >
-                {isLoading ? "Logging in..." : "Login"}
+                Login
               </Button>
             </div>
           </form>

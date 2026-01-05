@@ -8,7 +8,6 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       token: null,
       isAuthenticated: false,
-      isLoading: false,
 
       login: async (username: string, password: string) => {
         const response = await authApi.login({ username, password });
