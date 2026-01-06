@@ -7,15 +7,38 @@ export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
       token: null,
+      userId: null,
+      username: null,
       isAuthenticated: false,
 
       login: async (username: string, password: string) => {
         const response = await authApi.login({ username, password });
-        set({ token: response.token, isAuthenticated: true });
+        const user = await authApi.getUserByUsername(username);
+        
+        if (user) {
+          set({
+            token: response.token,
+            userId: user.id,
+            username: username,
+            isAuthenticated: true,
+          });
+        } else {
+          set({
+            token: response.token,
+            userId: null,
+            username: username,
+            isAuthenticated: true,
+          });
+        }
       },
 
       logout: () => {
-        set({ token: null, isAuthenticated: false });
+        set({
+          token: null,
+          userId: null,
+          username: null,
+          isAuthenticated: false,
+        });
       },
     }),
     {

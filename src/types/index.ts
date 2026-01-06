@@ -8,6 +8,8 @@ export type DefaultIconComponentProps = {
 
 export interface AuthState {
   token: string | null;
+  userId: number | null;
+  username: string | null;
   isAuthenticated: boolean;
   login: (username: string, password: string) => Promise<void>;
   logout: () => void;

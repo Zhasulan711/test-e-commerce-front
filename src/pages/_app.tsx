@@ -12,7 +12,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
-      <Component {...pageProps} />
+
+      <main className="flex flex-col mx-auto 2xl:max-w-325 xl:max-w-300 lg:max-w-220 md:max-w-172 sm:max-w-100 max-w-80">
+        <Component {...pageProps} />
+      </main>
+
     </QueryClientProvider>
   );
 }

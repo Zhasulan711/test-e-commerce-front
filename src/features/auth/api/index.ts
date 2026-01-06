@@ -1,4 +1,4 @@
-import { AuthResponse, LoginCredentials } from "../types";
+import { AuthResponse, LoginCredentials, User } from "../types";
 
 export const authApi = {
   async login(credentials: LoginCredentials): Promise<AuthResponse> {
@@ -11,5 +11,11 @@ export const authApi = {
     });
 
     return response.json();
+  },
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const response = await fetch("https://fakestoreapi.com/users");
+    const users: User[] = await response.json();
+    return users.find((user) => user.username === username);
   },
 };

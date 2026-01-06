@@ -1,9 +1,5 @@
-import { ProductsSection } from "@/features/components/home/components/ProductsSection";
+import { ProductsSection } from "@/features/home/components/ProductsSection";
 
 export default function Home() {
-  return (
-    <main className="mt-10 flex flex-col gap-5 mx-auto 2xl:max-w-325 xl:max-w-300 lg:max-w-220 md:max-w-172 sm:max-w-100 max-w-80">
-      <ProductsSection />
-    </main>
-  );
+  return <ProductsSection />;
 }
