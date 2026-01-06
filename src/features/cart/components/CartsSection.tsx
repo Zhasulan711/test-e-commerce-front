@@ -11,7 +11,6 @@ import { EmptyCartsState } from "./EmptyCartsState";
 import { UnauthenticatedCartsState } from "./UnauthenticatedCartsState";
 import { CartCard } from "./CartCard";
 import { ProductCard } from "@/features/home/types";
-import { Cart } from "../types";
 
 export const CartsSection = () => {
   const { userId, isAuthenticated } = useAuthStore();
